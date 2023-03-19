@@ -34,4 +34,4 @@ In the folder test_images are 5 different test images, but any picture in a comm
 ## Further Information
 
 PDF presentation about the project: 
-<a href="TreeID App.pdf" class="image fit"><img src="website_with_prediction.png" alt="PDF Presentation Link"></a>
+<a href="TreeID App.pdf" class="image fit"><img src="presentation_startimage.png" alt="PDF Presentation Link"></a>
