@@ -1,7 +1,7 @@
 # About the Tree ID App
 
-    Final project for the Ironhack data analyst bootcamp. 
-    This application allows the user to identify a tree from an uploaded image.
+Final project for the Ironhack data analyst bootcamp. 
+This application allows the user to identify a tree from an uploaded image.
 
 
 ## Overview
