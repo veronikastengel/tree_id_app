@@ -1,8 +1,9 @@
-# About the Tree ID App
+# About Tree ID App
 
 Final project for the Ironhack data analyst bootcamp. 
 
 This application allows the user to identify a tree from an uploaded image.
+
 
 
 
@@ -23,6 +24,7 @@ The maps use the Leaflet JavaScript library and are interactive. The first map s
 
 
 
+
 ## Home Page
 
 At the moment the prototype is a single page website. One of the first future developments would be to change the design for mobile usage.
@@ -37,11 +39,13 @@ Layout with a prediction:
 
 
 
+
 ## How to use it
 
 Run the tree_id_app/tree_id_flask.py file and the Web App will be displayed. However, to run the model prediction, the installation of libraries like tensorflow is required.
 
 In the folder test_images are 5 different test images, but any picture in a common file format can be used.
+
 
 
 
