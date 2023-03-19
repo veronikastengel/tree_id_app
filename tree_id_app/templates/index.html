@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tree_id.css') }}">
+    <script type="text/javascript" src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+    <script src="{{ url_for('static', filename='pinuspinea_var.geojson') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='pinuspinaster_var.geojson') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='eucalyptus_var.geojson') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='quercussuber_var.geojson') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='quercusrotundifolia_var.geojson') }}" type="text/javascript"></script>
+    <title>Tree ID</title>
+</head>
+<body>
+    <header><h1>Trees in Portugal - Identified From an Image</h1></header>
+    <main>
+        <header>
+            <h2>Please upload your photograph of a tree:</h2>
+            <form method="post" enctype="multipart/form-data">
+                <div class="container">
+                    <div class="button-wrap">
+                        <label class="button" for="upload">Browse to Upload File</label>
+                    </div>
+                    <input id="upload" type="file" name="file">
+                </div>
+                <div class="button-id">
+                    <input type="submit" value="Identify it!">
+                </div>
+            </form>
+            <p id="errormsg">{{merror}}</p>
+        </header>
+        <div class="preds">
+            <p style="visibility: {{genvis}};">Your uploaded image:</p>
+            <span><img style="visibility: {{genvis}};" id="upload_img" src="{{mimg}}" alt="upload image"></span>
+            
+        </div>
+        <div class="preds">
+            <p style="visibility: {{genvis}};"><b>Predicted tree species: {{engl}}</b></p>
+            <p style="visibility: {{genvis}};">Probability of prediction: {{macc}} %</p><br>
+            <p style="visibility: {{ac2vis}};">With second highest probability ({{macc2}} %): {{mpred2}}</p>
+            <p style="visibility: {{ac3vis}};">With third highest probability ({{macc3}} %): {{mpred3}}</p>
+        </div>
+        <div class="preds">
+            <p style="visibility: {{genvis}};"><b>{{pt}} - {{engl}}</b></p>
+            <span><img style="visibility: {{genvis}};" id="tree_exp_img" src="/static/tree_examples/{{mpred}}.jpg" alt="example image"></span>
+        </div>
+        <div class="preds">
+            <p style="visibility: {{genvis}};"><b>{{pt}} - {{engl}}</b></p><br>
+            <p>{{tree_txt}}</p>
+        </div>
+        <div class="maps" style="visibility: {{genvis}};">
+            <h4>Mapped Occurrences of different Species - Worldwide</h4>
+            <div id="map"></div>
+            <p class="small">Map Data layer: © GBIF.org (Global Biodiversity Information Facility)</p>
+        </div>
+        <div class="maps" style="visibility: {{genvis}};">
+            <h4>Places where you can find {{engl}} in Lisbon</h4>
+            <div id="map2lis"></div>
+            <p class="small">Map Data layer: © Câmara Municipal de Lisboa</p>
+        </div>
+        <p id="copyright">© Veronika Stengel 2023</p>    
+    </main>
+    <script>
+        // Javascript in html file for interactivity with flask
+        var map = L.map('map').setView([40, -3], 5);
+
+        var basemap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var quercussuber = L.tileLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@3x.png?srs=EPSG:3857&taxonKey=2879411&bin=hex&hexPerTile=30&style=green2.poly', {});
+        var eucalyptus = L.tileLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@3x.png?srs=EPSG:3857&taxonKey=3176787&bin=hex&hexPerTile=30&style=green2.poly', {});
+        var quercusrotundifolia = L.tileLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@3x.png?srs=EPSG:3857&taxonKey=2881550&bin=hex&hexPerTile=30&style=green2.poly', {});
+        var pinuspinaster = L.tileLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@3x.png?srs=EPSG:3857&taxonKey=5285565&bin=hex&hexPerTile=30&style=green2.poly', {});
+        var pinuspinea = L.tileLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@3x.png?srs=EPSG:3857&taxonKey=5285165&bin=hex&hexPerTile=30&style=green2.poly', {});
+
+        var overlayMaps = { 
+            "Cork Oak": quercussuber,
+            "Eucalyptus": eucalyptus,
+            "Holm Oak": quercusrotundifolia,
+            "Maritime Pine": pinuspinaster,
+            "Stone Pine": pinuspinea
+        };
+        var layerControl = L.control.layers(null , overlayMaps).addTo(map);
+
+        map.eachLayer(function(layer){
+            if (!(layer == basemap)) {
+                map.removeLayer(layer);
+            } 
+        });
+        {{tree_add}}.addTo(map);
+
+        var map2lis = L.map('map2lis').setView([38.75, -9.2], 11);
+        var basemap2 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map2lis);
+
+        icon = L.divIcon({
+            className: 'custom-div-icon',
+            html: "<div class='marker-pin'>&#x2022;</div>",
+            iconSize: [30, 42],
+            iconAnchor: [15, 42]
+        });
+        var points_pinuspinea = L.geoJson(p_pinuspinea,{
+            pointToLayer: function(feature,coordinates){
+            return L.marker(coordinates,{icon: icon});}
+        });
+        var points_pinuspinaster = L.geoJson(p_pinuspinaster,{
+            pointToLayer: function(feature,coordinates){
+            return L.marker(coordinates,{icon: icon});}
+        });
+        var points_quercussuber = L.geoJson(p_quercussuber,{
+            pointToLayer: function(feature,coordinates){
+            return L.marker(coordinates,{icon: icon});}
+        });
+        var points_quercusrotundifolia = L.geoJson(p_quercusrotundifolia,{
+            pointToLayer: function(feature,coordinates){
+            return L.marker(coordinates,{icon: icon});}
+        });
+        var points_eucalyptus = L.geoJson(p_eucalyptus,{
+            pointToLayer: function(feature,coordinates){
+            return L.marker(coordinates,{icon: icon});}
+        });
+
+        map2lis.eachLayer(function(layer){
+            if (!(layer == basemap2)) {
+                map2lis.removeLayer(layer);
+            } 
+        });
+        points_{{tree_add}}.addTo(map2lis);
+        
+    </script>
+</body>
+</html>

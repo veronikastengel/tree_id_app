@@ -1,0 +1,13 @@
+var p_quercusrotundifolia = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 848362 }, "geometry": { "type": "Point", "coordinates": [ -9.186764331076844, 38.720154850259881 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 848368 }, "geometry": { "type": "Point", "coordinates": [ -9.186782545775522, 38.720276234426571 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 848370 }, "geometry": { "type": "Point", "coordinates": [ -9.186361223242523, 38.720423032416356 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 812316 }, "geometry": { "type": "Point", "coordinates": [ -9.15821915750376, 38.739643859556914 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 812604 }, "geometry": { "type": "Point", "coordinates": [ -9.15808464061041, 38.739665253655389 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 812708 }, "geometry": { "type": "Point", "coordinates": [ -9.158429879841789, 38.740118846733893 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 812712 }, "geometry": { "type": "Point", "coordinates": [ -9.158500917574441, 38.740111534375885 ] } }
+]
+}

@@ -1,0 +1,5 @@
+what_kind_of_tree_is_this1.jpg: cork oak (quercus suber)
+what_kind_of_tree_is_this2.jpg: maritime pine (pinus pinaster)
+what_kind_of_tree_is_this3.jpg: stone pine (pinus pinea)
+what_kind_of_tree_is_this4.jpg: eucalyptus (eucalyptus)
+what_kind_of_tree_is_this5.jpg: holm oak (quercus rotundifolia)

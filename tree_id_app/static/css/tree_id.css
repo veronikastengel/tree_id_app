@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    color: #635336;
+}
+
+header{
+    text-align: center;
+    background-color: rgba(89, 184, 104, 0.5);
+    padding: 5px;
+}
+
+main > header {
+    width: 100%;
+    display: block;
+    background-color: rgba(182, 211, 105, 1); 
+}
+.container {
+    display: grid; 
+    position: absolute;
+    width: 50%;
+    text-align: left;
+}
+#upload{
+    position: absolute;
+    left: 120px;
+    padding-top: 10px;
+    font-size: large;
+}
+.button-wrap {
+    position: relative;
+    z-index: 2;
+}
+.button {
+    display: inline-block;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-right-width: 2px;
+    border-right-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: rgb(255, 235, 205); 
+    border-top-color: rgb(255, 235, 205); 
+    border-right-color: #AA9D89;
+    border-bottom-color: #AA9D89;
+    background-color: #006D2C;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+.button-id {
+    position: relative;
+    width: 50%;
+    z-index: 3;
+    float: right
+}
+input[type=submit] {
+    display: inline-block;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #006D2C;
+    border-color: rgb(255, 235, 205);
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 5px;
+  }
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    padding-bottom: 20px;
+    background-color: #d0e56233; 
+}
+
+.preds {
+    width: 12vw;
+    min-width: 220px;
+    border: 2px solid rgba(147, 196, 139, 0.5); 
+    background-color: rgba(137, 137, 82, 0.2); 
+    border-radius: 15px;
+    padding: 0 4vw;
+    margin: 15px;
+    text-align: center;
+}
+
+#tree_exp_img {
+    max-width:220px;
+    max-height:280px;
+}
+
+#upload_img {
+    max-width:220px;
+    max-height:280px;
+}
+
+#errormsg{
+    color:rgb(194, 25, 25)
+}
+
+.small {
+    font-size:small;
+}
+
+.maps {
+    width: 46vw;
+    min-width: 220px;
+    padding: 0 2vw;
+    text-align: center;
+}
+
+h1, h2, h4{
+    margin:5px;
+}
+#map, #map2lis { 
+    height: 300px;
+    border: 2px solid rgba(147, 196, 139, 0.5); 
+    border-radius: 5px;
+}
+
+.leaflet-control-layers-overlays {
+    text-align: left;
+    width: 120px;
+}
+
+.marker-pin {
+    color:#006D2C;
+    font-size: xxx-large;
+    opacity:0.65;
+}
+
+#copyright{
+    text-align: right;
+    width: 96%;
+    font-size: small;
+    margin-bottom: 0px;
+}
