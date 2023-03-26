@@ -2,7 +2,7 @@ import os
 import numpy as np
 from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
-from prediction2 import predicting
+from prediction3 import predicting
 from tree_info import tree_infos
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}

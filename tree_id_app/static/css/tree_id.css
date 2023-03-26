@@ -7,14 +7,14 @@ body {
 
 header{
     text-align: center;
-    background-color: rgba(89, 184, 104, 0.5);
+    background-color: #F6FADE;
     padding: 5px;
 }
 
 main > header {
     width: 100%;
     display: block;
-    background-color: rgba(182, 211, 105, 1); 
+    background-color: #c7df9a;
 }
 .container {
     display: grid; 
@@ -52,7 +52,7 @@ main > header {
     background-color: #006D2C;
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
+    color: #FAFCEE;
 }
 .button-id {
     position: relative;
@@ -69,7 +69,7 @@ input[type=submit] {
     border-color: rgb(255, 235, 205);
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
+    color: #FAFCEE;
     margin-top: 5px;
   }
 
@@ -79,13 +79,13 @@ main {
     justify-content: space-around;
     align-content: space-around;
     padding-bottom: 20px;
-    background-color: #d0e56233; 
+    background-color: #d0e5621a;
 }
 
 .preds {
     width: 12vw;
     min-width: 220px;
-    border: 2px solid rgba(147, 196, 139, 0.5); 
+    border: 2px solid #c7df9a;
     background-color: rgba(137, 137, 82, 0.2); 
     border-radius: 15px;
     padding: 0 4vw;
@@ -123,7 +123,7 @@ h1, h2, h4{
 }
 #map, #map2lis { 
     height: 300px;
-    border: 2px solid rgba(147, 196, 139, 0.5); 
+    border: 2px solid #c7df9a;
     border-radius: 5px;
 }
 
