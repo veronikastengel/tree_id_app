@@ -44,7 +44,7 @@ Layout before making a prediction:
 
 Layout showing the result of a prediction:
 
-![Layout with prediction](website_with_prediction.png)
+<img src="website_with_prediction.png" alt="Layout with prediction" width="800">
 
 
 
