@@ -53,7 +53,7 @@ Layout showing the result of a prediction:
 
 Run the tree_id_app/tree_id_flask.py file and the Web App will be displayed. However, to run the model prediction, the installation of libraries like tensorflow is required.
 
-In the folder test_images are 5 different test images, but any picture in a common file format can be used.
+In the folder test_images are several different test images, however any picture in a common file format can be used.
 
 
 
