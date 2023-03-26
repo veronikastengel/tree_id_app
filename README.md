@@ -25,9 +25,11 @@ The maps use the Leaflet JavaScript library and are interactive. The first map s
 
 
 
-## Release v1.02
+### Release v1.02
 
-Release v1.02 reaches higher accuracies in predictions by not only using 1 CNN, but 3 CNN. The following graphic highlights the differences between the releases:
+Release v1.02 reaches higher accuracies in predictions by not only using 1 CNN, but 3 CNN. More information can be found in the release notes.
+
+The following graphic highlights the differences between the releases:
 
 <img src="TreeID_App_comparison_v01_02.jpg" alt="Comparison of Release v1.01 and v1.02" width="800">
 
