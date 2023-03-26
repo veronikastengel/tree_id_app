@@ -9,7 +9,7 @@ This application allows the user to identify a tree from an uploaded image.
 
 ## Overview
 
-The core of the project was using deep learning algorithms to identify tree species from an image. 
+The core of the project was a Proof of Concept, using deep learning algorithms to identify tree species from an image.
 
 Along with the prediction result the user also gets additional information about the species, as well as a first map of worldwide distribution and a second map with locations of the tree species in Lisbon, Portugal.
 
@@ -21,6 +21,15 @@ As result the model gives a predicted species name and the probability of the pr
 
 
 The maps use the Leaflet JavaScript library and are interactive. The first map shows aggregated species occurrence counts, mapped by an API call to GBIF.org. The map always starts with showing the predicted species but can be switched to any other species contained in the model. The second map shows local data in Lisbon: Tree locations were mapped by the Câmara Municipal de Lisboa and are imported via GeoJSON.
+
+
+
+
+## Release v1.02
+
+Release v1.02 reaches higher accuracies in predictions by not only using 1 CNN, but 3 CNN. The following graphic highlights the differences between the releases:
+
+<img src="TreeID_App_comparison_v01_02.png" alt="Comparison of Release 01 and 02" width="800">
 
 
 
